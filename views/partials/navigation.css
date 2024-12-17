@@ -176,6 +176,10 @@
     .site-navigation li {
       margin-bottom: 10px;
     }
+
+    .search-bar {
+      min-width: 100px;
+    }
   }
 
   @media (min-width: 577px) and (max-width: 960px) {
