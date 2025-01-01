@@ -1,2 +1,85 @@
 @import url(../navigation.css);
 @import url(../footer.css);
+
+a {
+  all: unset;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inside-wrapper {
+  max-width: 80%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.text-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #00b3ff;
+  font-weight: 900;
+  font-size: 48px;
+}
+
+p {
+  font-size: 24px;
+}
+
+.image-container img {
+  width: 100%;
+  min-width: 350px;
+  max-width: 400px;
+}
+
+.action-container {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+
+.button {
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.login {
+  background-color: #00b3ff;
+}
+
+.login:hover {
+  background-color: #00b3ffbf;
+}
+
+.signup {
+  background-color: #2d2f31;
+  color: white;
+}
+
+.signup:hover {
+  background-color: #2d2f31df;
+}
+
+@media (max-width: 576px) {
+  .main-container {
+    padding-top: 90px;
+  }
+}

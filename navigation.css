@@ -80,6 +80,10 @@ body {
   transition: 0.3s;
 }
 
+.auth-navigation {
+  padding-left: 10px;
+}
+
 .auth-navigation li {
   display: flex;
   justify-content: center;
