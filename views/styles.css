@@ -78,8 +78,22 @@ p {
   background-color: #2d2f31df;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 976px) {
   .main-container {
-    padding-top: 90px;
+    padding-top: 300px;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  h1,
+  p {
+    text-align: center;
+  }
+
+  .action-container,
+  .text-container {
+    justify-content: center;
   }
 }
