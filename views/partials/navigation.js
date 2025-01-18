@@ -6,6 +6,27 @@ $(document).ready(function () {
   $(window).on("resize", function () {
     showMenuOnResize();
   });
+
+  const form = $("form");
+  form.submit(function (e) {
+    e.preventDefault;
+    const term = $(".search-input").val();
+    if (term !== "") {
+      form.attr("action", `/search/${term}`);
+      form.off("submit").submit();
+    }
+  });
+
+  $("#searchInput").on("input", function () {
+    const query = $(this).val();
+    fetchSearchResults(query);
+  });
+
+  $(document).on("click", function (event) {
+    if (!$(event.target).closest(".search-bar").length) {
+      $("#liveSearchResults").hide();
+    }
+  });
 });
 
 function toggleMenu(event) {
@@ -44,4 +65,60 @@ function showMenuOnResize() {
     $(".search-bar").css({ display: "none" });
     $(".main-navigation").css({ display: "none" });
   }
+}
+
+function fetchSearchResults(query) {
+  console.log("invoked");
+  if (query.trim() === "") {
+    $("#liveSearchResults").hide();
+    return;
+  }
+
+  $.ajax({
+    url: `/live/${query}`,
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      const resultsContainer = $("#liveSearchResults");
+      resultsContainer.empty();
+
+      console.log(data);
+
+      if (data.courses.length || data.categories.length) {
+        $("#liveSearchResults").show();
+        data.courses.forEach((course) => {
+          resultsContainer.append(`
+            <a href="/course/${course.course_slug}">
+              <div class="result-item">
+                <strong>${course.name}</strong> <br>
+                <span>${course.description}</span>
+              </div>
+            </a>
+          `);
+        });
+
+        $("#liveSearchResults").show();
+        if (data.categories.length) {
+          resultsContainer.append(
+            '<div class="category-title">Categories</div>'
+          );
+          data.categories.forEach((category) => {
+            resultsContainer.append(`
+            <a href="/category/${category.slug}">
+              <div class="result-item">${category.name}</div>
+            </a>
+            `);
+          });
+        }
+      } else {
+        resultsContainer.append(
+          '<div class="result-item">No results found</div>'
+        );
+        resultsContainer.show();
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching search results:", error);
+    },
+  });
 }

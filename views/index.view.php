@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php require 'partials/head.php'; ?>
+    <?php require(base_path('views/partials/head.php')); ?>
     <link rel="stylesheet" href="<?= base_url('views/styles.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('views/partials/course/course_card.css') ?>">
     <title>EwketHub</title>
 </head>
 
 <body>
-    <?php require 'partials/navigation.php'; ?>
+    <?php require(base_path('views/partials/navigation.php')); ?>
     <main class="main-container">
         <div class="inside-wrapper">
             <div class="text-container">
@@ -89,62 +90,15 @@
         <div class="top-courses-container">
             <h2>Top Courses</h2>
             <div class="courses">
-                <div class="course">
-                    <div class="course-image-container">
-                        <img
-                            class="course-image"
-                            src="../../assets/images/c5.webp"
-                            alt="" />
-                    </div>
-                    <div class="course-text">
-                        <div class="course-title">
-                            Web development
-                        </div>
-
-                        <div class="course-author">Dr. Angela Yu</div>
-                        <div class="course-price">300birr</div>
-                        <div class="course-category">Development</div>
-                    </div>
-                </div>
-                <div class="course">
-                    <div class="course-image-container">
-                        <img
-                            class="course-image"
-                            src="../../assets/images/c5.webp"
-                            alt="" />
-                    </div>
-                    <div class="course-text">
-                        <div class="course-title">
-                            Web development
-                        </div>
-
-                        <div class="course-author">Dr. Angela Yu</div>
-                        <div class="course-price">300birr</div>
-                        <div class="course-category">Development</div>
-                    </div>
-                </div>
-                <div class="course">
-                    <div class="course-image-container">
-                        <img
-                            class="course-image"
-                            src="../../assets/images/c5.webp"
-                            alt="" />
-                    </div>
-                    <div class="course-text">
-                        <div class="course-title">
-                            Web development
-                        </div>
-
-                        <div class="course-author">Dr. Angela Yu</div>
-                        <div class="course-price">300birr</div>
-                        <div class="course-category">Development</div>
-                    </div>
-                </div>
+                <?php for ($i = 0; $i < 20; $i++)
+                    require(base_path('views/partials/course/course_card.php'));
+                ?>
             </div>
         </div>
 
     </main>
-    <?php require 'partials/footer.php'; ?>
+    <?php require(base_path('views/partials/footer.php')); ?>
+    <script src="<?= base_url('views/partials/navigation.js'); ?>"></script>
 </body>
 
 </html>
