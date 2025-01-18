@@ -5,21 +5,15 @@ a {
   all: unset;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .main-container {
-  padding: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .inside-wrapper {
+  padding: 30px;
   max-width: 80%;
   display: flex;
   gap: 60px;
@@ -78,11 +72,115 @@ p {
   background-color: #2d2f31df;
 }
 
-@media (max-width: 976px) {
-  .main-container {
-    padding-top: 300px;
-  }
+.motivational {
+  width: 100%;
+  background-color: #00b3ff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5px 10px;
+  margin: 30px 0px;
+}
 
+.feature {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.feature p {
+  margin: 0;
+  flex: 1;
+  width: 100%;
+  max-width: 200px;
+  min-width: 180px;
+  text-align: start;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: start;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.category {
+  background-color: #00b3ff;
+}
+
+.top-courses-container {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: start;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.course {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid #484a4b37;
+  transition: 0.3s;
+}
+
+.course:hover {
+  border: 2px solid #00b3ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.course-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.course-text {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.course-author {
+  font-size: 14px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.645);
+}
+
+.course-price {
+  font-weight: 500;
+}
+
+.course-title {
+  font-weight: 700;
+}
+
+.course-category {
+  padding: 5px 8px;
+  border-radius: 3px;
+  font-size: 13px;
+  background-color: #00b3ff;
+  color: white;
+}
+
+@media (max-width: 976px) {
   h1 {
     margin-top: 0;
   }
