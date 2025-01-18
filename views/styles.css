@@ -180,6 +180,12 @@ p {
   color: white;
 }
 
+@media (max-width: 576px) {
+  .main-container {
+    padding-top: 60px;
+  }
+}
+
 @media (max-width: 976px) {
   h1 {
     margin-top: 0;

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php require 'partials/head.php'; ?>
+    <?php require(base_path('views/partials/head.php')); ?>
     <link rel="stylesheet" href="<?= base_url('views/styles.css') ?>">
     <title>EwketHub</title>
 </head>
 
 <body>
-    <?php require 'partials/navigation.php'; ?>
+    <?php require(base_path('views/partials/navigation.php')); ?>
     <main class="main-container">
         <div class="inside-wrapper">
             <div class="text-container">
@@ -144,7 +144,8 @@
         </div>
 
     </main>
-    <?php require 'partials/footer.php'; ?>
+    <?php require(base_path('views/partials/footer.php')); ?>
+    <script src="<?= base_url('views/partials/navigation.js'); ?>"></script>
 </body>
 
 </html>

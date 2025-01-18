@@ -3,9 +3,11 @@
     <div class="menu">
       <i class="bi menu-icon bi-list"></i>
     </div>
-    <div class="logo">
-      <div class="logo-img"></div>
-    </div>
+    <a href="/">
+      <div class="logo">
+        <div class="logo-img"></div>
+      </div>
+    </a>
   </div>
   <div class="search-bar">
     <input
@@ -13,8 +15,7 @@
       type="text"
       name=""
       id=""
-      placeholder="Search for a course or category"
-    />
+      placeholder="Search for a course or category" />
   </div>
   <div class="main-navigation">
     <div class="nav-items">
