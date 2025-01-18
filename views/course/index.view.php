@@ -11,7 +11,7 @@
 <body>
     <?php require(base_path('views/partials/navigation.php')) ?>
     <main>
-        <h1>Introduction to Web Development</h1>
+        <h2>Introduction to Web Development</h2>
         <div class="main-container">
             <div class="video-container">
 

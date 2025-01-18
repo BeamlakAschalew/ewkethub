@@ -114,7 +114,18 @@ p {
 }
 
 .category {
+  padding: 10px;
+  display: flex;
+  color: white;
+  font-weight: bold;
   background-color: #00b3ff;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.category p {
+  margin: 0;
 }
 
 .top-courses-container {
