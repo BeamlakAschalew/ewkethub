@@ -73,10 +73,16 @@ h1 {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  padding: 5px;
+  transition: 0.4s;
 }
 
 .section-content li:hover {
   cursor: pointer;
+  background-color: #00b3ff;
+  padding: 5px;
+  border-radius: 3px;
+  transition: 0.4s;
 }
 
 .section-content .duration {
