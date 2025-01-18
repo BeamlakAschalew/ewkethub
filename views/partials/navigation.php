@@ -10,12 +10,16 @@
     </a>
   </div>
   <div class="search-bar">
-    <input
-      class="search-input"
-      type="text"
-      name=""
-      id=""
-      placeholder="Search for a course or category" />
+    <form action="#" method="post" style="width: 100%">
+      <input
+        class="search-input"
+        type="text"
+        name=""
+        value="<?php if (isset($searchTerm)) echo $searchTerm;
+                else echo ""; ?>"
+        id=""
+        placeholder="Search for a course or category" />
+    </form>
   </div>
   <div class="main-navigation">
     <div class="nav-items">

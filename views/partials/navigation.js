@@ -6,6 +6,15 @@ $(document).ready(function () {
   $(window).on("resize", function () {
     showMenuOnResize();
   });
+  const form = $("form");
+  form.submit(function (e) {
+    e.preventDefault;
+    const term = $(".search-input").val();
+    if (term !== "") {
+      form.attr("action", `/search/${term}`);
+      form.off("submit").submit();
+    }
+  });
 });
 
 function toggleMenu(event) {
