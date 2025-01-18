@@ -147,6 +147,40 @@ body {
   transition: 0.4s;
 }
 
+.search-results {
+  margin-top: 40px;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 60%;
+}
+
+.search-results .result-item {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-results .result-item:hover {
+  background-color: #f7f9fa;
+}
+
+.search-results .category-title {
+  font-weight: bold;
+  margin: 10px 0 5px 10px;
+  color: #555;
+}
+
+.search-results .result-item:last-child {
+  border-bottom: none;
+}
+
 @media (min-width: 577px) {
   .search-bar,
   .main-navigation {
@@ -209,9 +243,17 @@ body {
   .search-bar {
     min-width: 100px;
   }
+
+  .search-results {
+    width: 95%;
+  }
 }
 
 @media (min-width: 577px) and (max-width: 960px) {
+  .search-results {
+    width: 60%;
+  }
+
   .logo-img {
     background-image: url("../../assets/images/logos/logo-sd.png");
     width: 45px;
@@ -239,5 +281,11 @@ body {
 
   .main-navigation {
     order: 2;
+  }
+}
+
+@media (max-width: 960px) {
+  .search-results {
+    width: 95%;
   }
 }
