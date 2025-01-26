@@ -3,17 +3,18 @@
         <div class="course-image-container">
             <img
                 class="course-image"
-                src="../../assets/images/c5.webp"
+                src="<?= web_asset('images/course_thumbnails/1737823631.jpg') ?>"
                 alt="" />
         </div>
         <div class="course-text">
             <div class="course-title">
-                Web development
+                <?= $course['course_name'] ?>
             </div>
 
-            <div class="course-author">Dr. Angela Yu</div>
-            <div class="course-price">300birr</div>
-            <div class="course-category">Development</div>
+            <div class="course-author"><?= $course['instructor_name'] ?></div>
+            <div class="course-price"><?= $course['price'] ?>birr</div>
+            <div class="course-category"><?= $course['category_name'] ?></div>
+            <?php dd(dirname(parse_url($_SERVER['REQUEST_URI'])['path'])) ?>
         </div>
     </div>
 </a>

@@ -87,11 +87,12 @@
             </div>
         </div>
 
-        <div class="top-courses-container">
-            <h2>Top Courses</h2>
+        <div class="latest-courses-container">
+            <h2>Latest Courses</h2>
             <div class="courses">
-                <?php for ($i = 0; $i < 20; $i++)
+                <?php foreach ($courses as $course) :
                     require(base_path('views/partials/course/course_card.php'));
+                endforeach;
                 ?>
             </div>
         </div>

@@ -12,6 +12,18 @@ if ($environment == 'localhost')
             'password' => ''
         ],
     ];
+else if ($environment == 'ewkethub.test')
+    return [
+        'database' => [
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'ewkethub_test',
+            'username' => 'root',
+            'password' => 'newpassword'
+
+
+        ],
+    ];
 else
     return [
         'database' => [

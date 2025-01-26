@@ -68,7 +68,6 @@ function showMenuOnResize() {
 }
 
 function fetchSearchResults(query) {
-  console.log("invoked");
   if (query.trim() === "") {
     $("#liveSearchResults").hide();
     return;
@@ -81,8 +80,6 @@ function fetchSearchResults(query) {
     success: function (data) {
       const resultsContainer = $("#liveSearchResults");
       resultsContainer.empty();
-
-      console.log(data);
 
       if (data.courses.length || data.categories.length) {
         $("#liveSearchResults").show();
