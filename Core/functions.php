@@ -1,7 +1,5 @@
 <?php
 
-use Core\Response;
-
 function dd($value) {
     echo "<pre>";
     var_dump($value);
@@ -21,7 +19,7 @@ function abort($attributes = [], $code = 404) {
     die();
 }
 
-function authorize($condition, $status = Response::FORBIDDEN) {
+function authorize($condition, $status = 404) {
     if (! $condition) {
         abort($status);
     }
