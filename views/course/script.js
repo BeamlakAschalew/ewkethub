@@ -23,8 +23,9 @@ $(document).ready(function () {
       .closest("li")
       .find(".duration")
       .data("video-url");
-    const fullLink = `../../assets/videos/${videoName}`;
-    $("source").attr("src", fullLink);
+    var basePath = `${window.location.protocol}//${window.location.host}`;
+    var fullLink = `/ewkethub_shared_assets/videos/lesson_videos/${videoName}`;
+    $("source").attr("src", `${basePath}${fullLink}`);
     $("h1").text(lessonTitle);
 
     player.source = {
@@ -38,5 +39,8 @@ $(document).ready(function () {
     };
 
     player.play();
+
+    $(".section-content li").removeClass("active-lesson");
+    $(this).addClass("active-lesson");
   });
 });

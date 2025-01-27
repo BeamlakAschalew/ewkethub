@@ -5,61 +5,53 @@
     <?php require(base_path('views/partials/head.php')); ?>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
     <link rel="stylesheet" href="<?= base_url('views/course/styles.css') ?>">
-    <title>Document</title>
+    <title><?= $courseInfo['course_name'] ?></title>
 </head>
 
 <body>
     <?php require(base_path('views/partials/navigation.php')) ?>
     <main>
-        <h2>Introduction to Web Development</h2>
+        <h2><?= $courseInfo['course_name'] ?></h2>
         <div class="main-container">
             <div class="video-container">
 
                 <video controls crossorigin playsinline class="plyr">
-                    <source src="../../assets/videos/1.mp4" type="video/mp4">
+                    <source src="<?= base_url("ewkethub_shared_assets/videos/lesson_videos/{$sectionsLessons[0]['lessons'][0]['video_file_path']}") ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="lessons-container">
                 <div class="accordion">
-                    <div class="section">
-                        <div class="section-header active">
-                            <h3>Section 1: Introduction</h3>
-                            <i class="bi bi-chevron-down toggle-icon"></i>
-                        </div>
-                        <div class="section-content" style="display: block;">
-                            <ul>
-                                <li>
-                                    <div class="lesson-title">Lesson 1.1: Introduction to the Course</div>
-                                    <div class="duration" data-video-url="2.mp4">(5:00)</div>
-                                </li>
-                                <li>
-                                    <div class="lesson-title">Lesson 1.2: Setting Up Your Environment</div>
-                                    <div class="duration" data-video-url="3.mp4">(10:00)</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="section-header">
-                            <h3>Section 2: Getting Started</h3>
-                            <i class="bi bi-chevron-down toggle-icon"></i>
-                        </div>
-                        <div class="section-content">
-                            <ul>
-                                <li>
-                                    <div class="lesson-title">Lesson 2.1: Basics of HTML</div>
-                                    <div class="duration" data-video-url="3.mp4">(15:00)</div>
-                                </li>
-                                <li>
-                                    <div class="lesson-title">Lesson 2.2: Basics of CSS</div>
-                                    <div class="duration" data-video-url="4.mp4">(20:00)</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    <?php if (count($sectionsLessons) == 0): ?>
+                        <div class="no-sections">There are no sections</div>
+                    <?php else: ?>
+                        <?php $i = 0;
+                        foreach ($sectionsLessons as $section): ?>
+                            <div class="section">
+                                <div class="section-header <?= ($i == 0) ? 'active' : ''; ?>">
+                                    <h3><?= $section['section']['section_name'] ?></h3>
+                                    <i class="bi bi-chevron-down toggle-icon"></i>
+                                </div>
+                                <div class="section-content">
+                                    <?php if (count($section['lessons']) == 0): ?>
+                                        <div class="no-lessons">There are no lessons</div>
+                                    <?php else: ?>
+                                        <ul>
+                                            <?php foreach ($section['lessons'] as $lesson): ?>
+                                                <li>
+                                                    <div class="lesson-title"><?= $lesson['lesson_name'] ?></div>
+                                                    <div class="duration" data-video-url="<?= $lesson['video_file_path'] ?>">(<?= $lesson['duration'] ?>)</div>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
 
+                        <?php $i++;
+                        endforeach; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </main>

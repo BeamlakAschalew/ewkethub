@@ -2,7 +2,7 @@
 
 $environment = $_SERVER['SERVER_NAME'];
 
-if ($environment == 'localhost')
+if ($environment == 'localhost' || $environment == 'ewkethub.localhost')
     return [
         'database' => [
             'host' => 'localhost',

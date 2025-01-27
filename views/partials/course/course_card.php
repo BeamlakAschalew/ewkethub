@@ -1,4 +1,4 @@
-<a href="/course/course-name">
+<a href="/course/<?= $course['course_slug'] ?>">
     <div class="course">
         <div class="course-image-container">
             <img

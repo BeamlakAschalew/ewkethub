@@ -86,6 +86,14 @@ h2 {
   transition: 0.4s;
 }
 
+.active-lesson {
+  cursor: pointer;
+  background-color: #00b3ff;
+  padding: 5px;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
 .section-content .duration {
   color: #888;
   font-size: 14px;

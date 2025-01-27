@@ -20,7 +20,9 @@
 
 .course-image {
   width: 100%;
+  height: 250px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .course-text {

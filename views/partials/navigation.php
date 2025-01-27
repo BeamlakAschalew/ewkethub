@@ -27,10 +27,10 @@
   <div class="main-navigation">
     <div class="nav-items">
       <ul class="site-navigation">
-        <li class="selected">Home</li>
-        <li>Categories</li>
-        <li>My courses</li>
-        <li>Wishlist</li>
+        <li <?= urlIs('/') ? 'class="selected"' : '' ?>>Home</li>
+        <li <?= urlIs('/categories') ? 'class="selected"' : '' ?>>Categories</li>
+        <li <?= urlIs('/my-courses') ? 'class="selected"' : '' ?>>My courses</li>
+        <li <?= urlIs('/wishlist') ? 'class="selected"' : '' ?>>Wishlist</li>
       </ul>
     </div>
 
