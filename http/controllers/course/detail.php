@@ -11,7 +11,9 @@ $database = new Database($config['database']);
 
 $data = $_GET;
 
-$courseInfo = $database->query("SELECT course.name AS course_name, course.id AS course_id FROM course WHERE course.course_slug = '{$data['course-slug']}'")->find();
+$courseInfo = $database->query("SELECT course.name AS course_name, course.id AS course_id, course.description AS course_description FROM course WHERE course.course_slug = :course_slug", [
+    'course_slug' => $data['course-slug']
+])->find();
 
 $courseId = $courseInfo['course_id'];
 

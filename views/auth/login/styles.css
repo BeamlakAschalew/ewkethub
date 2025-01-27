@@ -121,6 +121,19 @@ main {
   transition: 0.3s;
 }
 
+.form-error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 576px) {
   main {
     margin-top: 30px;

@@ -19,6 +19,8 @@
                     <source src="<?= base_url("ewkethub_shared_assets/videos/lesson_videos/{$sectionsLessons[0]['lessons'][0]['video_file_path']}") ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <p><?= $courseInfo['course_description'] ?></p>
             </div>
             <div class="lessons-container">
                 <div class="accordion">
@@ -37,12 +39,14 @@
                                         <div class="no-lessons">There are no lessons</div>
                                     <?php else: ?>
                                         <ul>
-                                            <?php foreach ($section['lessons'] as $lesson): ?>
-                                                <li>
+                                            <?php $j = 0;
+                                            foreach ($section['lessons'] as $lesson): ?>
+                                                <li class="<?= ($j == 0) ? 'active-lesson' : ''; ?>">
                                                     <div class="lesson-title"><?= $lesson['lesson_name'] ?></div>
                                                     <div class="duration" data-video-url="<?= $lesson['video_file_path'] ?>">(<?= $lesson['duration'] ?>)</div>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php $j++;
+                                            endforeach; ?>
                                         </ul>
                                     <?php endif; ?>
                                 </div>
