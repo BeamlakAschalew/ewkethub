@@ -62,9 +62,10 @@ $studentId = $database->connection->lastInsertId();
 
 $studentFind = $database->query(
     "SELECT * FROM student WHERE id = :id",
-    ['id' => $instructorId]
+    ['id' => $studentId]
 )->find();
 
 setcookie("student", json_encode($studentFind), time() + (432000 * 30), "/");
 
 header("Location: /");
+
