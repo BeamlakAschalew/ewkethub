@@ -37,6 +37,11 @@
                                 placeholder="Password"
                                 class="password-input form-input" />
                             <div class="password-error error"></div>
+                            <?php if (isset($errors) && !empty($errors)): ?>
+                                <?php foreach ($errors as $error): ?>
+                                    <div class="error"><?= $error ?></div><br>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                         <div class="action-buttons">
                             <input type="submit" class="submit-button" value="Login" />
