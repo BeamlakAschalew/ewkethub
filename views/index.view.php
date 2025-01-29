@@ -15,10 +15,12 @@
             <div class="text-container">
                 <h1>Online courses at your convinience</h1>
                 <p>Master real world skills and knowledge without any disruption at your comfort zone</p>
-                <div class="action-container">
-                    <a class="button login" href="/login">Login</a>
-                    <a class="button signup" href="/signup">Signup</a>
-                </div>
+                <?php if (!isset($_SESSION['student'])): ?>
+                    <div class="action-container">
+                        <a class="button login" href="/login">Login</a>
+                        <a class="button signup" href="/signup">Signup</a>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="image-container">
                 <img src="../assets/images/online_learning.png" alt="" srcset="">

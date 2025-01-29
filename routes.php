@@ -6,6 +6,7 @@ $router->get('/signup', 'auth/signup/signup.php');
 $router->post('/signup', 'auth/signup/create.php');
 $router->get('/login', 'auth/login/login.php');
 $router->post('/login', 'auth/login/create.php');
+$router->post('/logout', 'auth/logout.php');
 
 $router->get('/course/{course-slug}', 'course/detail.php');
 

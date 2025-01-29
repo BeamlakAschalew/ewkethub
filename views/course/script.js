@@ -19,6 +19,7 @@ $(document).ready(function () {
 
   $(".section-content > ul > li").on("click", function (e) {
     const lessonTitle = $(e.target).closest("li").find(".lesson-title").text();
+    console.log(lessonTitle);
     const videoName = $(e.target)
       .closest("li")
       .find(".duration")
@@ -26,7 +27,7 @@ $(document).ready(function () {
     var basePath = `${window.location.protocol}//${window.location.host}`;
     var fullLink = `/ewkethub_shared_assets/videos/lesson_videos/${videoName}`;
     $("source").attr("src", `${basePath}${fullLink}`);
-    $("h1").text(lessonTitle);
+    $("h2").text(`${$("h2").data("course-name")}: ${lessonTitle}`);
 
     player.source = {
       type: "video",
@@ -43,4 +44,7 @@ $(document).ready(function () {
     $(".section-content li").removeClass("active-lesson");
     $(this).addClass("active-lesson");
   });
+
+  if ($(".main-title").data("paid") === "false")
+    $(".section-content > ul > li").off();
 });
