@@ -36,8 +36,24 @@
 
     <div class="nav-auth">
       <ul class="auth-navigation">
-        <li class="login">Login</li>
-        <li class="signup">Signup</li>
+        <?php if (isset($_SESSION['student'])): ?>
+          <?php if (isset($_SESSION['student']['profilePath']) && $_SESSION['student']['profilePath'] !== ""): ?>
+            <img src="<?= base_url("ewkethub_shared_assets/images/students/profile_images/{$_SESSION['student']['profilePath']}") ?>" class="profile-image" alt="Profile Image" />
+          <?php else: ?>
+            <img src="<?= base_url() ?>assets/images/user-avatar.png" class="profile-image" alt="Profile Image" />
+          <?php endif ?>
+          <a href=""><?= $_SESSION['student']['username'] ?></a>
+          <form id="logout-form" method="POST" action="/logout">
+            <a href="#" class="logout" onclick="document.getElementById('logout-form').submit();">Log Out</a>
+          </form>
+        <?php else: ?>
+          <li class="login">
+            <a href="/login">Login</a>
+          </li>
+          <li class="signup">
+            <a href="/signup">Signup</a>
+          </li>
+        <?php endif ?>
       </ul>
     </div>
   </div>
