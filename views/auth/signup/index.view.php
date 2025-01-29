@@ -74,6 +74,11 @@
                                 class="password-input form-input" />
                             <div class="repeat-password-error error"></div>
                         </div>
+                        <?php if (isset($errors) && !empty($errors)): ?>
+                            <?php foreach ($errors as $error): ?>
+                                <div class="error"><?= $error ?></div><br>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                         <div class="action-buttons">
                             <input class="submit-button" type="submit" value="Signup" />
                             <button class="login-button">Login</button>
