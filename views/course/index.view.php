@@ -50,7 +50,9 @@
                     <div class="course-actions">
                         <?php if (isset($_SESSION['student'])) : ?>
                             <div class="course-action">
-                                <a href="<?= base_url('courses/' . $courseInfo['course_id'] . '/enroll') ?>" class="course-button enroll-button">BUY NOW</a>
+                                <form action="/course/<?= $courseInfo['course_slug'] ?>/enroll" method="post">
+                                    <input type="submit" value="BUY NOW - <?= $courseInfo['price'] ?>birr" class="course-button enroll-button">
+                                </form>
                             </div>
                         <?php else: ?>
                             <div class="course-action">
