@@ -67,5 +67,8 @@ $studentFind = $database->query(
 
 setcookie("student", json_encode($studentFind), time() + (432000 * 30), "/");
 
-header("Location: /");
-
+Core\Session::set('message', [
+    'type' => 'success',
+    'content' => 'Signup successful.'
+]);
+redirect('/');
