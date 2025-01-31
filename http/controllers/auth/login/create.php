@@ -30,4 +30,10 @@ if ($student) {
 }
 
 setcookie("student", json_encode($student), time() + (432000 * 30), "/");
-header("Location: /");
+
+Core\Session::set('message', [
+    'type' => 'success',
+    'content' => 'Login successful.'
+]);
+
+redirect('/');
