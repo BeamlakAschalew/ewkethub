@@ -17,10 +17,14 @@ $courseId = $courseInfo['course_id'];
 $enroll = $database->query('INSERT INTO student_course (student_id, course_id) VALUES (:student_id, :course_id)', [
     'student_id' => $_SESSION['student']['id'],
     'course_id' => $courseId
-]);
+])->find();
 
 if ($database->statement->rowCount() > 0) {
-    header("Location: /course/{$data['course-slug']}");
+    Core\Session::set('message', [
+        'type' => 'success',
+        'content' => 'Course bought successfully.'
+    ]);
+    redirect("/course/{$data['course-slug']}");
 } else {
     abort(['error' => 'Error purchasing course'], 500);
 }
