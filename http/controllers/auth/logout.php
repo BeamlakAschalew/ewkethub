@@ -8,5 +8,4 @@ if (isset($_COOKIE['student'])) {
     setcookie('student', '', time() - 3600, '/');
 }
 
-header("Location: /");
-exit();
+redirect('/');
