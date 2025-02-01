@@ -1,8 +1,15 @@
 @import url("../../navigation.css");
 @import url("../../footer.css");
 
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .main-container {
   margin: 0 5%;
+  flex-grow: 1;
 }
 
 h2 {
@@ -121,6 +128,10 @@ label > span {
   flex-direction: column;
   width: 95%;
   justify-content: start;
+}
+
+.results-section {
+  padding-top: 15px;
 }
 
 @media (max-width: 576px) {

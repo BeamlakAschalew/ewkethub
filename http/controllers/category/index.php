@@ -1,3 +1,16 @@
 <?php
 
-view('category/index.view.php', []);
+use Core\Database;
+
+$config = require base_path("essentials/config.php");
+$database = new Database($config["database"]);
+
+$categories = $database->query("SELECT * FROM category")->get();
+$categoryInfo = $database->query("SELECT * FROM category WHERE slug = :category_slug", ['category_slug' => $_GET['category-slug']])->find();
+
+if (!$categoryInfo) {
+    abort(['error' => 'The category you want is not found'], 404);
+}
+
+$categoryCourses = $database->query("SELECT course.name AS course_name, instructor.full_name AS instructor_name, course.price AS price, category.name AS category_name, course.course_thumbnail_path AS thumbnail_path, course.course_slug AS course_slug FROM course JOIN instructor ON course.instructor_id = instructor.id JOIN category ON course.category_id = category.id WHERE category_id = :category_id", ['category_id' => $categoryInfo['id']])->get();
+view('category/index.view.php', ['categories' => $categories, 'categoryInfo' => $categoryInfo, 'categoryCourses' => $categoryCourses]);

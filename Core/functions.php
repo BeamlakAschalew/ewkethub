@@ -12,6 +12,10 @@ function urlIs($value) {
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
+function categoryIs($value) {
+    return $_GET['category-slug'] == $value;
+}
+
 function abort($attributes = [], $code = 404) {
     http_response_code($code);
     extract($attributes);

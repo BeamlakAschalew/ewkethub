@@ -11,9 +11,9 @@
 <body>
     <?php require(base_path('views/partials/navigation.php')) ?>
     <main class="main-container">
-        <h2>37 Results for "<?= $searchTerm ?>"</h2>
+        <h2><?= count($courses) ?> Results for "<?= $searchTerm ?>"</h2>
         <div class="grid-container">
-            <div class="filter-side">
+            <!-- <div class="filter-side">
                 <div class="dropdown">
                     <label for="sort">Sort by:</label>
                     <select id="sort" class="dropdown-select">
@@ -25,7 +25,6 @@
                     </select>
                 </div>
 
-                <!-- Radio Button Group -->
                 <div class="radio-group">
                     <span>Difficulty Level:</span>
                     <label>
@@ -46,7 +45,6 @@
                     </label>
                 </div>
 
-                <!-- Price Range -->
                 <div class="price-range">
                     <label for="price">Max price:</label>
                     <input type="range" id="price" min="0" max="1000" step="50" value="500">
@@ -54,10 +52,10 @@
                         <span>$0</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="results-section">
                 <div class="courses">
-                    <?php for ($i = 0; $i < 9; $i++)
+                    <?php foreach ($courses as $course)
                         require(base_path('views/partials/course/course_card.php'))
                     ?>
                 </div>

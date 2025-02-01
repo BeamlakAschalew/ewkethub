@@ -46,46 +46,46 @@
         <div class="categories-container">
             <h2>Top Categories</h2>
             <div class="categories">
-                <div class="category">
+                <a href="/category/marketing" class="category">
                     <img src="../assets/images/email.png" alt="" class="category-image">
                     <p class="category-name">Marketing</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/development" class="category">
                     <img src="../assets/images/web-programming.png" alt="" class="category-image">
                     <p class="category-name">Development</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/music" class="category">
                     <img src="../assets/images/musical-note.png" alt="" class="category-image">
                     <p class="category-name">Music</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/art-illustration" class="category">
                     <img src="../assets/images/art.png" alt="" class="category-image">
                     <p class="category-name">Art & Illustration</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/design" class="category">
                     <img src="../assets/images/curve.png" alt="" class="category-image">
                     <p class="category-name">Design</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/film-video" class="category">
                     <img src="../assets/images/video-ico.png" alt="" class="category-image">
                     <p class="category-name">Film & Video</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/animation-3d" class="category">
                     <img src="../assets/images/animation.png" alt="" class="category-image">
                     <p class="category-name">Animation & 3D</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/data-science" class="category">
                     <img src="../assets/images/data.png" alt="" class="category-image">
                     <p class="category-name">Data Science</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/photography" class="category">
                     <img src="../assets/images/photography.png" alt="" class="category-image">
                     <p class="category-name">Photography</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="/category/finance" class="category">
                     <img src="../assets/images/hand.png" alt="" class="category-image">
                     <p class="category-name">Finance</p>
-                </div>
+                </a>
             </div>
         </div>
 

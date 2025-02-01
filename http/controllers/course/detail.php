@@ -15,6 +15,10 @@ $courseInfo = $database->query("SELECT course.name AS course_name, course.course
     'course_slug' => $data['course-slug']
 ])->find();
 
+if (!$courseInfo) {
+    abort([], 404);
+}
+
 $courseId = $courseInfo['course_id'];
 
 $loggedIn = isset($_SESSION['student']);
