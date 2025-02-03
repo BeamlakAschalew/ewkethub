@@ -2,9 +2,14 @@
 
 use Core\Database;
 
-$config = require base_path("essentials/config.php");
-$database = new Database($config['database']);
+try {
 
-$categories = $database->query("SELECT * FROM category")->get();
+    $config = require base_path("essentials/config.php");
+    $database = new Database($config['database']);
 
-view('categories/index.view.php', ['categories' => $categories]);
+    $categories = $database->query("SELECT * FROM category")->get();
+
+    view('categories/index.view.php', ['categories' => $categories]);
+} catch (Exception $e) {
+    abort(['error' => $e->getMessage()], 500);
+}

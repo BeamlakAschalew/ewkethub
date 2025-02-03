@@ -1,11 +1,16 @@
 <?php
 
-if (isset($_SESSION['student'])) {
-    unset($_SESSION['student']);
-}
+try {
 
-if (isset($_COOKIE['student'])) {
-    setcookie('student', '', time() - 3600, '/');
-}
+    if (isset($_SESSION['student'])) {
+        unset($_SESSION['student']);
+    }
 
-redirect('/');
+    if (isset($_COOKIE['student'])) {
+        setcookie('student', '', time() - 3600, '/');
+    }
+
+    redirect('/');
+} catch (Exception $e) {
+    abort(['error' => $e->getMessage()], 500);
+}

@@ -5,35 +5,40 @@
 
 use Core\Database;
 
-$errors = [];
-$data = $_POST;
-$config = require base_path("essentials/config.php");
-$database = new Database($config["database"]);
+try {
 
-$student = $database->query("SELECT * FROM student WHERE email = :email OR username = :username", [
-    'email' => $data['emailUsername'],
-    'username' => $data['emailUsername'],
-])->find();
+    $errors = [];
+    $data = $_POST;
+    $config = require base_path("essentials/config.php");
+    $database = new Database($config["database"]);
 
-if (!$student) {
-    $errors['noUser'] = 'No user found with your username';
-    view('auth/login/index.view.php', ['errors' => $errors]);
-    die();
-}
+    $student = $database->query("SELECT * FROM student WHERE email = :email OR username = :username", [
+        'email' => $data['emailUsername'],
+        'username' => $data['emailUsername'],
+    ])->find();
 
-if ($student) {
-    if (!password_verify($data['password'], $student['password'])) {
-        $errors['incorrectPassword'] = 'Incorrect password';
+    if (!$student) {
+        $errors['noUser'] = 'No user found with your username';
         view('auth/login/index.view.php', ['errors' => $errors]);
         die();
     }
+
+    if ($student) {
+        if (!password_verify($data['password'], $student['password'])) {
+            $errors['incorrectPassword'] = 'Incorrect password';
+            view('auth/login/index.view.php', ['errors' => $errors]);
+            die();
+        }
+    }
+
+    setcookie("student", json_encode($student), time() + (432000 * 30), "/");
+
+    Core\Session::set('message', [
+        'type' => 'success',
+        'content' => 'Login successful.'
+    ]);
+
+    redirect('/');
+} catch (Exception $e) {
+    abort(['error' => $e->getMessage()], 500);
 }
-
-setcookie("student", json_encode($student), time() + (432000 * 30), "/");
-
-Core\Session::set('message', [
-    'type' => 'success',
-    'content' => 'Login successful.'
-]);
-
-redirect('/');
