@@ -44,7 +44,7 @@ $(document).ready(function () {
     $(".section-content li").removeClass("active-lesson");
     $(this).addClass("active-lesson");
   });
-
-  if ($(".main-title").data("paid") === "false")
+  if ($(".main-title").data("paid") === false) {
     $(".section-content > ul > li").off();
+  }
 });
