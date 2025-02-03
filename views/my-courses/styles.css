@@ -1,0 +1,22 @@
+@import url("../../navigation.css");
+@import url("../../footer.css");
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding: 20px 5%;
+}
+
+.no-course {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
