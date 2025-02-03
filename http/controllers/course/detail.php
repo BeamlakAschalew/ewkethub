@@ -30,6 +30,12 @@ if ($loggedIn) {
         'course_id' => $courseId,
         'student_id' => $_SESSION['student']['id']
     ])->find();
+
+    $isWishlisted = $database->query('SELECT * FROM wishlist WHERE course_id = :course_id AND student_id = :student_id', [
+        'course_id' => $courseId,
+        'student_id' => $_SESSION['student']['id']
+    ])->find();
+
     $hasEntry ? $paidFor = true : $paidFor = false;
 } else {
     $paidFor = false;
@@ -76,4 +82,4 @@ foreach ($sections as $section) {
     ];
 }
 
-view('course/index.view.php', ['courseInfo' => $courseInfo, 'sectionsLessons' => $sectionsAndLessons, 'paidFor' => $paidFor, 'studentsCount' => $studentsCount]);
+view('course/index.view.php', ['courseInfo' => $courseInfo, 'sectionsLessons' => $sectionsAndLessons, 'paidFor' => $paidFor, 'studentsCount' => $studentsCount, 'isWishlisted' => $isWishlisted]);

@@ -15,9 +15,12 @@ $router->get('/category/{category-slug}', 'category/index.php');
 $router->get('/categories', 'categories/index.php');
 
 $router->get('/my-courses', 'my-courses/index.php')->only('auth');
+$router->get('/wishlist', 'wishlist/index.php')->only('auth');
 
 $router->post('/search/{search-term}', 'search/index.php');
 $router->get('/search/{search-term}', 'search/index.php');
 $router->get('/live/{query}', 'search/live.php');
+$router->post('/wishlist/add', 'wishlist/add.php');
+$router->post('/wishlist/remove', 'wishlist/remove.php');
 
 $router->get('/category/{category-slug}', 'category/index.php');

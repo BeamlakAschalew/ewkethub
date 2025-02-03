@@ -47,4 +47,48 @@ $(document).ready(function () {
   if ($(".main-title").data("paid") === false) {
     $(".section-content > ul > li").off();
   }
+
+  $(".wishlist-button").on("click", () => {
+    let mode = $(".bookmark")[0].classList[0].includes("plus")
+      ? "add"
+      : "remove";
+
+    $.ajax({
+      url: `/wishlist/${mode}`,
+      method: "POST",
+      data: {
+        course_slug: $(".main-title").data("course-slug"),
+      },
+      dataType: "json",
+      success: function (data) {
+        if (data.success && mode === "add") {
+          $(".wishlist-button").html(
+            '<i class="bi-bookmark-dash-fill bi bookmark"></i> Remove from wishlist'
+          );
+          $(".message-widget").text("Course added to wishlist");
+          $(".message-widget").addClass("success-widget");
+          $(".message-widget").show();
+        } else if (data.success && mode === "remove") {
+          $(".wishlist-button").html(
+            '<i class="bi-bookmark-plus-fill bi bookmark"></i> Add to wishlist'
+          );
+          $(".message-widget").text("Course removed from wishlist");
+          $(".message-widget").addClass("success-widget");
+          $(".message-widget").show();
+        } else if (!data.success) {
+          $(".message-widget").text(`Failed to ${mode} the course`);
+          $(".message-widget").removeClass("success-widget error-widget");
+          $(".message-widget").addClass("error-widget");
+          $(".message-widget").show();
+        }
+
+        setTimeout(() => {
+          $(".message-widget").hide();
+        }, 3000);
+      },
+      error: function (xhr, status, error) {
+        console.error("Error in wishlist:", error);
+      },
+    });
+  });
 });
