@@ -13,10 +13,7 @@
 
             <div class="course-author"><?= $course['instructor_name'] ?></div>
             <div class="course-price"><?= $course['price'] ?>birr</div>
-            <div class="category-bookmark">
-                <div class="course-category"><?= $course['category_name'] ?></div>
-                <p><i class="bi bi-bookmark-dash-fill bookmark"></i></p>
-            </div>
+            <div class="course-category"><?= $course['category_name'] ?></div>
         </div>
     </div>
 </a>

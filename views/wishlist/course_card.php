@@ -1,4 +1,4 @@
-<a href="/course/<?= $course['course_slug'] ?>">
+<a href="/course/<?= $course['course_slug'] ?>" class="course">
     <div class="course">
         <div class="course-image-container">
             <img
@@ -13,7 +13,10 @@
 
             <div class="course-author"><?= $course['instructor_name'] ?></div>
             <div class="course-price"><?= $course['price'] ?>birr</div>
-            <div class="course-category"><?= $course['category_name'] ?></div>
+            <div class="category-bookmark">
+                <div class="course-category"><?= $course['category_name'] ?></div>
+                <p class="bookmark-btn" data-course-slug="<?= $course['course_slug'] ?>"><i class="bi bi-bookmark-dash-fill bookmark"></i></p>
+            </div>
         </div>
     </div>
 </a>

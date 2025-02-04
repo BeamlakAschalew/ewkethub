@@ -54,3 +54,24 @@
   background-color: #00b3ff;
   color: white;
 }
+
+.category-bookmark {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bookmark {
+  font-size: 28px;
+  padding: 10px;
+  color: #00b3ff;
+  transition: 0.2s;
+  border-radius: 100px;
+}
+
+.bookmark:hover {
+  cursor: pointer;
+  background-color: #00b3ff47;
+  transition: 0.2s;
+}

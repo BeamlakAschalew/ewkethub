@@ -29,6 +29,7 @@
         <?php endif; ?>
     </main>
     <?php require base_path('views/partials/footer.php'); ?>
+    script src="<?= base_url('views/partials/navigation.js'); ?>"></script>
 </body>
 
 </html>

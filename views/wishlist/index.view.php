@@ -4,8 +4,8 @@
 <head>
     <?php require base_path('views/partials/head.php'); ?>
     <link rel="stylesheet" href="<?= base_url('views/wishlist/styles.css') ?>">
-    <link rel="stylesheet" href="<?= base_url("views/partials/course/course_card.css") ?>">
-    <title>My Courses</title>
+    <link rel="stylesheet" href="<?= base_url("views/wishlist/course_card.css") ?>">
+    <title>My wishlist</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <div class="courses-container">
                 <div class="courses">
                     <?php foreach ($studentWishlist as $course) :
-                        require(base_path('views/partials/course/course_card.php'));
+                        require(base_path('views/wishlist/course_card.php'));
                     endforeach;
                     ?>
                 </div>
@@ -29,6 +29,7 @@
         <?php endif; ?>
     </main>
     <?php require base_path('views/partials/footer.php'); ?>
+    <script src="<?= base_url("views/wishlist/script.js") ?>"></script>
 </body>
 
 </html>
