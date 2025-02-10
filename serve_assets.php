@@ -7,7 +7,6 @@ $filePath = strtok($requestUri, '?');
 
 if (strpos($filePath, '/ewkethub_shared_assets') === 0) {
     $fullPath = SHARED_ASSETS_PATH . str_replace('/ewkethub_shared_assets', '', $filePath);
-    dd($fullPath);
     if (file_exists($fullPath) && is_file($fullPath)) {
         $mimeType = mime_content_type($fullPath);
 
