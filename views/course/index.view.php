@@ -54,6 +54,8 @@
                         <?php if (isset($_SESSION['student'])) : ?>
                             <div class="course-action">
                                 <form action="/course/<?= $courseInfo['course_slug'] ?>/enroll" method="post">
+                                    <input type="hidden" name="coursePrice" value="<?= $courseInfo['price'] ?>">
+                                    <input type="hidden" name="courseName" value="<?= $courseInfo['course_name'] ?>">
                                     <input type="submit" value="BUY NOW - <?= $courseInfo['price'] ?>birr" class="course-button enroll-button">
                                 </form>
                             </div>
