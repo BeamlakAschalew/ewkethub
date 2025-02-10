@@ -8,8 +8,10 @@ $router->get('/login', 'auth/login/login.php');
 $router->post('/login', 'auth/login/create.php');
 $router->post('/logout', 'auth/logout.php');
 
+$router->get('/confirm', 'enroll/enroll.php');
+
 $router->get('/course/{course-slug}', 'course/detail.php');
-$router->post('/course/{course-slug}/enroll', 'enroll/enroll.php');
+$router->post('/course/{course-slug}/enroll', 'enroll/pay.php');
 
 $router->get('/category/{category-slug}', 'category/index.php');
 $router->get('/categories', 'categories/index.php');
