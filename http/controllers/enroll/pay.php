@@ -54,8 +54,8 @@ try {
             "amount" => $data['coursePrice'],
             "currency" => "ETB",
             "email" => "{$student['email']}",
-            "first_name" => "{$student['full_name']}",
-            "last_name" => "{$student['full_name']}",
+            "first_name" => "{$student['fullName']}",
+            "last_name" => "{$student['fullName']}",
             "phone_number" => "0936648802",
             "tx_ref" => $tx,
             "return_url" => $returnUrl . "/confirm?" . http_build_query([
@@ -64,7 +64,6 @@ try {
             ]),
             "customization" => [
                 "title" => "Pay {$data['coursePrice']}",
-                "description" => "Pay {$data['coursePrice']} for {$courseInfo['course_name']}"
             ],
             "meta" => [
                 "hide_receipt" => "true"
@@ -74,6 +73,7 @@ try {
     ));
 
 
+
     $response = curl_exec($curl);
     curl_close($curl);
     $response = json_decode($response, true);
@@ -81,6 +81,8 @@ try {
     if ($response['status'] === 'success') {
         header("Location: " . $response['data']['checkout_url']);
         die();
+    } else {
+        abort(['error' => 'Failed to initialize transaction'], 500);
     }
 } catch (Exception $e) {
     abort(['error' => $e->getMessage()], 500);
