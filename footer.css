@@ -46,6 +46,7 @@ footer {
   list-style-type: none;
   font-weight: bold;
   font-size: 20px;
+  cursor: pointer;
 }
 
 hr {

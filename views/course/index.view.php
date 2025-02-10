@@ -107,7 +107,7 @@
                                                     <div class="lesson-title"><?= $lesson['lesson_name'] ?></div>
                                                     <div class="duration" data-video-url="<?php if (isset($lesson['video_file_path'])) {
                                                                                                 echo $lesson['video_file_path'];
-                                                                                            } ?>">(<?= $lesson['duration'] ?>)<?php if ($paidFor == false && $j != 0):  ?><i class="bi bi-lock-fill"></i><?php endif; ?></div>
+                                                                                            } ?>">(<?= $lesson['duration'] ?>)<?php if ($paidFor == false && ($i != 0 || $j != 0)):  ?><i class="bi bi-lock-fill"></i><?php endif; ?></div>
                                                 </li>
                                             <?php $j++;
                                             endforeach; ?>

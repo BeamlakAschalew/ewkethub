@@ -9,10 +9,8 @@
 
     <div class="site-links">
       <ul class="links">
-        <li class="link-item">Home</li>
-        <li class="link-item">Become a creator</li>
-        <li class="link-item">About us</li>
-        <li class="link-item">Contact</li>
+        <li class="link-item"><a href="/">Home</a></li>
+        <li class="link-item"><a href="<?= $_SERVER['SERVER_NAME'] === 'ewkethub.localhost' ? 'http://ewkethub-instructor.localhost/' : 'https://ewkethub-instructor.beamlak.dev/' ?>">Become a creator</a></li>
       </ul>
     </div>
   </div>
