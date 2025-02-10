@@ -13,7 +13,7 @@
     <main>
         <div class="title-wishlist-container">
             <h2 class="main-title" data-course-slug="<?= $_GET['course-slug'] ?>" data-paid="<?= $paidFor ? 'true' : 'false' ?>" data-course-name="<?= $courseInfo['course_name'] ?>"> <?php if (count($sectionsLessons) == 0): ?><?= $courseInfo['course_name'] ?><?php else : ?><?= $courseInfo['course_name'] ?>: <?= $sectionsLessons[0]['lessons'][0]['lesson_name'] ?><?php endif; ?></h2>
-            <div class="wishlist-button"><i class="bi-bookmark-<?= $isWishlisted ? 'dash' : 'plus' ?>-fill bi bookmark"></i> <?= $isWishlisted ? 'Remove from wishlist' : 'Add to wishlist' ?></div>
+            <?php if (isset($_SESSION['student'])) : ?> <div class="wishlist-button"><i class="bi-bookmark-<?= $isWishlisted ? 'dash' : 'plus' ?>-fill bi bookmark"></i> <?= $isWishlisted ? 'Remove from wishlist' : 'Add to wishlist' ?></div><?php endif ?>
         </div>
         <div class="main-container">
             <div class="video-container">
