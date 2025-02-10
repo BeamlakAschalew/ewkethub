@@ -1,6 +1,8 @@
 RewriteEngine On
 RewriteBase /
 
+Header set Accept-Ranges bytes
+
 # Route /ewkethub_shared_assets to serve_assets.php
 RewriteCond %{REQUEST_URI} ^/ewkethub_shared_assets [NC]
 RewriteRule ^(.*)$ serve_assets.php [L]
