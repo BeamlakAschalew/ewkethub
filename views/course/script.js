@@ -1,4 +1,27 @@
-const player = new Plyr(".plyr");
+const player = new Plyr(".plyr", {
+  controls: [
+    "play-large",
+    "play",
+    "progress",
+    "current-time",
+    "duration",
+    "mute",
+    "volume",
+    "captions",
+    "settings",
+    "pip",
+    "fullscreen",
+  ],
+  seekTime: 10,
+  disableContextMenu: false,
+  tooltips: {
+    controls: true,
+  },
+  keyboard: {
+    focused: true,
+    global: true,
+  },
+});
 
 $(document).ready(function () {
   $(".section-header").on("click", function () {
