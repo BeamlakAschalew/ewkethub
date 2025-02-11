@@ -103,7 +103,7 @@
                                         <ul>
                                             <?php $j = 0;
                                             foreach ($section['lessons'] as $lesson): ?>
-                                                <li class="<?= ($j == 0) ? 'active-lesson' : ''; ?>">
+                                                <li class="<?= ($j == 0 && $i == 0) ? 'active-lesson' : ''; ?>">
                                                     <div class="lesson-title"><?= $lesson['lesson_name'] ?></div>
                                                     <div class="duration" data-video-url="<?php if (isset($lesson['video_file_path'])) {
                                                                                                 echo $lesson['video_file_path'];
