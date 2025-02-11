@@ -32,10 +32,18 @@
     <div class="main-navigation">
       <div class="nav-items">
         <ul class="site-navigation">
-          <a href="/" <?= urlIs('/') ? 'class="selected"' : '' ?>>Home</a>
-          <a href="/categories" <?= urlIs('/categories') ? 'class="selected"' : '' ?>>Categories</a>
-          <a href="/my-courses" <?= urlIs('/my-courses') ? 'class="selected"' : '' ?>>My courses</a>
-          <a href="/wishlist" <?= urlIs('/wishlist') ? 'class="selected"' : '' ?>>Wishlist</a>
+          <a href="/" <?= urlIs('/') ? 'class="selected"' : '' ?>>
+            <li>Home</li>
+          </a>
+          <a href="/categories" <?= urlIs('/categories') ? 'class="selected"' : '' ?>>
+            <li>Categories</li>
+          </a>
+          <a href="/my-courses" <?= urlIs('/my-courses') ? 'class="selected"' : '' ?>>
+            <li>My courses</li>
+          </a>
+          <a href="/wishlist" <?= urlIs('/wishlist') ? 'class="selected"' : '' ?>>
+            <li>Wishlist</li>
+          </a>
         </ul>
       </div>
 
