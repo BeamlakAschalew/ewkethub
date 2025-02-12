@@ -8,7 +8,7 @@ use Core\Database;
 try {
 
     $errors = [];
-    $data = $_POST;
+    $data = sanitise_form($_POST);
     $config = require base_path("essentials/config.php");
     $database = new Database($config["database"]);
 

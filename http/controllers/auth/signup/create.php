@@ -6,13 +6,13 @@ try {
 
     $errors = [];
     $targetDir = "../../ewkethub_shared_assets/images/students/profile_images/";
-    $data = $_POST;
+    $data = sanitise_form($_POST);
     $config = require base_path("essentials/config.php");
     $database = new Database($config["database"]);
 
     $student = $database->query("SELECT * FROM student WHERE email = :email OR username = :username", [
-        'email' => $_POST['email'],
-        'username' => $_POST['username'],
+        'email' => $data['email'],
+        'username' => $data['username'],
     ])->find();
 
     if ($student) {

@@ -2,12 +2,10 @@
 
 use Core\Database;
 
-$data = $_POST;
+$data = sanitise_form($_POST);
 
 $config = require base_path("essentials/config.php");
 $database = new Database($config['database']);
-
-$data = $_POST;
 
 $course = $database->query("SELECT * FROM course WHERE course_slug = :course_slug", [
     'course_slug' => $data['course_slug']

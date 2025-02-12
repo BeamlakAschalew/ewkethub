@@ -7,7 +7,7 @@ try {
     $config = require base_path("essentials/config.php");
     $database = new Database($config['database']);
 
-    $data = $_GET;
+    $data = sanitise_form($_GET);
 
     $courseInfo = $database->query("SELECT course.name AS course_name, course.course_slug AS course_slug, course.id AS course_id, course.description AS course_description, course.price AS price, instructor.full_name AS instructor_name, instructor.username AS instructor_username, instructor.profile_picture_path AS instructor_profile_image, course_difficulty.name AS course_difficulty FROM course JOIN instructor ON course.instructor_id = instructor.id JOIN course_difficulty ON course.difficulty = course_difficulty.id WHERE course.course_slug = :course_slug", [
         'course_slug' => $data['course-slug']

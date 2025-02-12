@@ -54,3 +54,13 @@ function base_url($path = '') {
 function getCurrentDate() {
     return date('Y-m-d');
 }
+
+function sanitise_form($formData) {
+    $sanitisedData = [];
+
+    foreach ($formData as $key => $value) {
+        $sanitisedData[$key] = htmlspecialchars(trim($value));
+    }
+
+    return $sanitisedData;
+}
