@@ -32,17 +32,17 @@ class Router {
         return $this->add('POST', $uri, $controller);
     }
 
-    public function delete($uri, $controller) {
-        return $this->add('DELETE', $uri, $controller);
-    }
+    // public function delete($uri, $controller) {
+    //     return $this->add('DELETE', $uri, $controller);
+    // }
 
-    public function patch($uri, $controller) {
-        return $this->add('PATCH', $uri, $controller);
-    }
+    // public function patch($uri, $controller) {
+    //     return $this->add('PATCH', $uri, $controller);
+    // }
 
-    public function put($uri, $controller) {
-        return $this->add('PUT', $uri, $controller);
-    }
+    // public function put($uri, $controller) {
+    //     return $this->add('PUT', $uri, $controller);
+    // }
 
     public function only($key) {
         $this->routes[array_key_last($this->routes)]['middleware'] = $key;

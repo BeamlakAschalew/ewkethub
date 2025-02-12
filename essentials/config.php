@@ -10,7 +10,7 @@ if ($environment == 'localhost' || $environment == 'ewkethub.localhost')
             'dbname' => 'ewkethub_test',
             'username' => 'root',
             'password' => ''
-        ],
+        ]
     ];
 else if ($environment == 'ewkethub.test')
     return [

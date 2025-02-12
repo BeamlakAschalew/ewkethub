@@ -17,7 +17,7 @@
                 <h2>Internal server error</h2>
                 <p>Sorry, we messed up big time.</p>
                 <p><?= "Error: {$error}" ?></p>
-                <a href="/home" class="home-button">Take me home</a>
+                <a href="/" class="home-button">Take me home</a>
             </div>
         </div>
     </main>
